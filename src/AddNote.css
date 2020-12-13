@@ -1,0 +1,27 @@
+.add-note h2 {
+    margin-left: 16px;
+    
+  }
+  .add-note {
+    background-color: steelblue;
+    color: #dedede;
+    padding: 16px;
+    max-width: 332px;
+    
+      
+  }
+  .add-note label{
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 8px;
+  }
+
+  #note-form-content{
+      height: 40px;
+      
+  }
+  .error{
+      margin: 0;
+      font-weight: lighter;
+  }
