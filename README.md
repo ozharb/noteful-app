@@ -8,5 +8,5 @@
 - Delete notes
 - Use controlled forms when making notes that show what fields are required
 
-Link to live app: noteful-3-ff9cl6ywu.vercel.app
+Link to live app: noteful-3-git-main.ozharb.vercel.app
 # my-new-noteful
