@@ -35,13 +35,10 @@ handleClickDelete = e => {
       
     })
     .then(() => {
-      
+
      
       this.context.deleteNote(noteId)
-      console.log(noteId)
-      this.props.history.goBack()
-      // allow parent to perform extra behaviour
-      // this.props.onDeleteNote(noteId)
+
     })
     .catch(error => {
       console.error({ error })

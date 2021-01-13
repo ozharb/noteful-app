@@ -18,13 +18,6 @@ export default class NoteListMain extends React.Component {
     }
   }
  
-  deleteMessage = () => {
-    console.log('deleted')
-              if (this.context.deleted === true) {
-              return 'Folder Empty';
-  }
-  }
-  
   static contextType = NotesContext
 render(){
   const { folderId } = this.props.match.params

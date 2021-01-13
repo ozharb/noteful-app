@@ -32,25 +32,14 @@ static contextType = NotesContext
     .then(() => {
      
       this.context.deleteNote(noteId)
-      console.log(noteId)
-      // allow parent to perform extra behaviour
-      // this.props.onDeleteNote(noteId)
+  
     
     })
     .catch(error => {
       console.error({ error })
     })
 }
-deleteMessage = () => {
-  console.log('deleted')
 
-         
-     
-            if (this.context.deleted === true) {
-              
-            return 'Note Deleted';
-}
-}
   render() {
    
     const { notes=[] } = this.context
@@ -58,8 +47,6 @@ deleteMessage = () => {
     const note = findNote(notes, noteId) || { content: 'Note Deleted' }
   
 
-console.log(note)
- console.log("noteId =" + noteId)
 
   return (
     <>

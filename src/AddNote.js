@@ -67,7 +67,7 @@ handleSubmit = e => {
         return res.json()
     })
     .then( data =>{
-        console.log(data.folder_id)
+    
         this.context.addNote(data)
         this.props.history.push(`/folder/${data.folder_id}`)})
     .catch( error => {
