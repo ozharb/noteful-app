@@ -11,6 +11,8 @@ import config from '../config'
 
 
 class Note extends Component {
+  
+
   static defaultProps ={
     onDeleteNote: () => {},
   }
@@ -18,8 +20,9 @@ static contextType = NotesContext;
 
 handleClickDelete = e => {
   e.preventDefault()
-  const noteId = this.props.id
-console.log(noteId)
+  const noteId = parseInt(this.props.id)
+
+
   fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
     method: 'DELETE',
     headers: {
@@ -29,18 +32,21 @@ console.log(noteId)
     .then(res => {
       if (!res.ok)
         return res.json().then(e => Promise.reject(e))
-      return res.json()
+      
     })
     .then(() => {
+      
+     
       this.context.deleteNote(noteId)
+      console.log(noteId)
+      this.props.history.goBack()
       // allow parent to perform extra behaviour
-      this.props.onDeleteNote(noteId)
+      // this.props.onDeleteNote(noteId)
     })
     .catch(error => {
       console.error({ error })
     })
 }
-
 
 render(){
   const { name, id, modified } = this.props
@@ -55,6 +61,7 @@ render(){
       type='button'
       onClick={this.handleClickDelete}
       >
+         
         <FontAwesomeIcon icon={faSkullCrossbones}  />
         {' '}
         remove

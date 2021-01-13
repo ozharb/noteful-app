@@ -17,7 +17,7 @@ import NotefulError from '../NotefulError'
 class App extends Component {
     state = {
         notes: [],
-        folders: []
+        folders: [],
     };
 
     componentDidMount() {
@@ -64,10 +64,10 @@ class App extends Component {
     handleDeleteNote = noteId => {
         this.setState({
             notes: this.state.notes.filter(note=>
-                note.id !== noteId)
+                note.id !== parseInt(noteId))
         })
     }
-
+  
     renderNavRoutes() {
        
         return (
@@ -135,6 +135,8 @@ class App extends Component {
             addFolder: this.handleAddFolder,
             addNote: this.handleAddNote,
             deleteNote: this.handleDeleteNote,
+            deleted: this.state.deleted,
+            setDeleted: this.setDeleted
         };
         return (
             <NotesContext.Provider value = {value}>

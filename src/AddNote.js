@@ -47,9 +47,9 @@ static defaultProps = {
 handleSubmit = e => {
     e.preventDefault()
     const newNote= {
-        name: e.target['note-name'].value,
-        modified: new Date(),
-        folderId: e.target['note-folder'].value,
+        notename: e.target['note-name'].value,
+        date_made: new Date(),
+        folder_id: e.target['note-folder'].value,
         content: e.target['note-content'].value
     }
     fetch(`${config.API_ENDPOINT}/notes`, 
@@ -67,9 +67,9 @@ handleSubmit = e => {
         return res.json()
     })
     .then( data =>{
-        console.log(data.folderId)
+        console.log(data.folder_id)
         this.context.addNote(data)
-        this.props.history.push(`/folder/${data.folderId}`)})
+        this.props.history.push(`/folder/${data.folder_id}`)})
     .catch( error => {
         console.error({ error })
     })
@@ -103,7 +103,7 @@ render(){
             onChange={e => this.setFolder(e.target.value)}>
                     <option value = {null}>choose folder</option>
                     {folders.map(folder=>
-                        <option value = {folder.id} key = {folder.id} id={folder.id}>{folder.name}</option> )}
+                        <option value = {folder.id} key = {folder.id} id={folder.id}>{folder.title}</option> )}
                 </select>
            
             <button className='buttons' type = "submit" disabled={this.validateName()|| this.validateFolder()}>Done</button>

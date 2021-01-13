@@ -17,3 +17,10 @@
   background-color: mediumspringgreen;
   color: white;
 }
+
+.empty-folder-message {
+  font-size: 20px;
+  color:lightgray;
+  text-align: center;
+}
+

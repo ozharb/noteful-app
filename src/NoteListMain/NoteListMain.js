@@ -10,32 +10,45 @@ import NotefulError from '../NotefulError'
 import PropTypes from 'prop-types';
 
 export default class NoteListMain extends React.Component {
+  
 
   static defaultProps = {
     match: {
       params: {}
     }
   }
-
+ 
+  deleteMessage = () => {
+    console.log('deleted')
+              if (this.context.deleted === true) {
+              return 'Folder Empty';
+  }
+  }
+  
   static contextType = NotesContext
 render(){
   const { folderId } = this.props.match.params
   const { notes=[] } = this.context
   const notesForFolder = getNotesForFolder(notes, folderId)
+  const folderEmpty = notesForFolder.length === 0
+     ? <li className="empty-folder-message">Folder empty</li>
+      : null
 
   return (
     <>
    <NotefulError>
     <section className='NoteListMain'>
       <ul>
+       {folderEmpty}
       {notesForFolder.map(note =>
        
           <li key={note.id}>
-            
+          
             <Note
+              
               id={note.id}
-              name={note.name}
-              modified={note.modified}
+              name={note.notename}
+              modified={note.date_made}
             />
          
           </li>
